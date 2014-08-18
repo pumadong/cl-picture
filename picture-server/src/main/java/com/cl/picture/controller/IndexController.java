@@ -2,6 +2,7 @@ package com.cl.picture.controller;
 
 import java.util.Calendar;
 import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,5 +85,50 @@ public class IndexController {
 		request.getSession().setAttribute(SessionUtil.SessionSystemLoginUserName,user);
 		
 		return ConstantUtil.Success;
+	}
+	
+	@RequestMapping("/view")
+	public String view(String visitedModule,String visitedResource,HttpServletRequest request,ModelMap map)
+	{
+		//初始化用户、菜单
+		User user = SessionUtil.getSessionUser(request);
+		String menus = privilegeBaseApiService.getModuleTree(user.getId(),visitedModule,visitedResource);
+        map.put("user", user);
+        map.put("menus", menus);
+        
+        map.put("visitedModule", visitedModule);
+        map.put("visitedResource", visitedResource);
+        
+		return "view.ftl";
+	}
+	
+	@RequestMapping("/viewresult")
+	public String viewresult(String visitedModule,String visitedResource,String year,String month,String no,HttpServletRequest request,ModelMap map)
+	{
+		//初始化用户、菜单
+		User user = SessionUtil.getSessionUser(request);
+		String menus = privilegeBaseApiService.getModuleTree(user.getId(),visitedModule,visitedResource);
+        map.put("user", user);
+        map.put("menus", menus);
+
+        map.put("visitedModule", visitedModule);
+        map.put("visitedResource", visitedResource);
+    	map.put("year", year);
+    	map.put("month", month);
+    	map.put("no", no);
+        
+		return "view.ftl";
+	}
+	
+	@RequestMapping("/upload")
+	public String upload(String visitedModule,String visitedResource,HttpServletRequest request,ModelMap map)
+	{
+		//初始化用户、菜单
+		User user = SessionUtil.getSessionUser(request);
+		String menus = privilegeBaseApiService.getModuleTree(user.getId(),visitedModule,visitedResource);
+        map.put("user", user);
+        map.put("menus", menus);
+        
+		return "upload.ftl";
 	}
 }
