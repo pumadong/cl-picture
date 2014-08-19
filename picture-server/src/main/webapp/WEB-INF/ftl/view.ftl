@@ -153,8 +153,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				           	</div>
 							<div class="form-actions fluid">
 								<div class="col-md-offset-0 col-md-9">
-									<button type="submit" class="btn blue" onclick="javascript:return check();">查询</button>
-									<button type="reset" class="btn blue" onclick="javascript:hide();">取消</button>
+									<button type="submit" class="btn blue" onclick="javascript:return View.check();">查询</button>
+									<button type="reset" class="btn blue" onclick="javascript:View.hide();">取消</button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span id="checkResult" class="btn red" style="display:none"></span>
 								</div>
@@ -163,6 +163,59 @@ License: You must have a valid license purchased only from themeforest(the above
 	           		</div>
 				</div>
 			</div>
+			<!-- BEGIN 查询结果-->
+			<#if result?? >
+			<div class="row">
+				<div class="col-md-12">
+					<div class="portlet grey box">
+						<div class="portlet-title">
+							<div class="caption">
+								查询结果
+							</div>
+						</div>						
+						<div class="portlet-body">
+							<#if result >
+								<#if mapFile?exists>
+								<#list mapFile?keys as key> 
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<h3 class="panel-title">第${key}张角度图</h3>
+									</div>
+									<div class="panel-body">
+										<#list mapFile[key] as item>
+											<a href="${PicPath}/${year}${month}/${no}/${item}" target="_blank">${item}</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</#list>
+									</div>
+								</div>
+								</#list>
+								</#if>
+								<#if lstFileB??>
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<h3 class="panel-title">宝贝描述图</h3>
+									</div>
+									<div class="panel-body">
+										<#list lstFileB as item>
+											<a href="${PicPath}/${year}${month}/${no}/${item}" target="_blank">${item}</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</#list>
+									</div>
+								</div>
+								</#if>
+							<#else>
+								<div class="panel panel-info">
+									<div class="panel-body">
+										 指定的目录不存在！
+									</div>
+								</div>
+							</#if> 
+						</div>
+					</div>
+				</div>
+			</div>
+			</#if>
+			<!-- END 查询结果-->	
 			<!-- END PAGE CONTENT-->
 		</div>
 	</div>

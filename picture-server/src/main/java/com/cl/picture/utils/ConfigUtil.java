@@ -12,6 +12,7 @@ public class ConfigUtil {
 	private @Value("${cas.service.url}")String casServiceUrl;
 	private @Value("${web.basepath}")String basePath;
 	private @Value("${inc.basepath}")String incBasePath;
+	private @Value("${pic.basepath}")String picBasePath;
 	private @Value("${picture.location}")String pictureLocation;
 	
 	public String getCasServerUrl() {
@@ -28,6 +29,10 @@ public class ConfigUtil {
 	
 	public String getIncBasePath() {
 		return incBasePath;
+	}
+	
+	public String getPicBasePath() {
+		return picBasePath;
 	}
 	
 	public String getPictureLocation() {

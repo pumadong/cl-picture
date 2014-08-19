@@ -77,6 +77,7 @@
 			<map>
 				<entry key="BasePath" value="${web.basepath}" />
 				<entry key="IncPath" value="${inc.basepath}" />
+				<entry key="PicPath" value="${pic.basepath}" />
 				<entry key="xml_escape" value-ref="fmXmlEscape" />
 			</map>
 		</property>
