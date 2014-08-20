@@ -1,6 +1,6 @@
 ﻿INSERT INTO `p_module`(id,name,flag,url,sort_no,create_person,create_date,update_person,update_date) 
 VALUES
-(2,'图片中心','pi','http://localhost:10003/picture-server',20,'system',NOW(),'system',NOW())
+(2,'图片中心','pi','http://127.0.0.1:10003/picture-server',20,'system',NOW(),'system',NOW())
 ;
 
 

@@ -214,6 +214,7 @@ License: You must have a valid license purchased only from themeforest(the above
     jQuery(document).ready(function() {       
        // initiate layout and plugins
        App.init();
+       Cl.initModal();
     });
 </script>
 <!-- END JAVASCRIPTS -->
