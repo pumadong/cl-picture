@@ -95,7 +95,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		           			<input type="hidden" name="visitedModule" value="${visitedModule}">
 		           			<input type="hidden" name="visitedResource" value="${visitedResource}">
 		           			<div class="form-group">
-								<label class="control-label col-md-1">年份：
+								<label class="control-label col-md-2">年份：
 								<span class="required">
 									 *
 								</span>
@@ -118,7 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 		           			<div class="form-group">
-								<label class="control-label col-md-1">月份：
+								<label class="control-label col-md-2">月份：
 								<span class="required">
 									 *
 								</span>
@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 		           			<div class="form-group">
-								<label class="control-label col-md-1">商品编号：
+								<label class="control-label col-md-2">商品编号：
 								<span class="required">
 									 *
 								</span>
@@ -152,13 +152,18 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 							<div class="form-actions fluid">
-								<div class="col-md-offset-0 col-md-9">
-									<button type="submit" class="btn blue" onclick="javascript:return View.check();">查询</button>
+								<div class="col-md-offset-0 col-md-12">
+									<button type="button" class="btn blue" onclick="javascript:View.search();">查询</button>
+									<button type="button" class="btn blue" onclick="javascript:View.delete();">删除</button>
+									<button type="button" class="btn blue" onclick="javascript:View.refreshCDN();">刷新CDN</button>
 									<button type="reset" class="btn blue" onclick="javascript:View.hide();">取消</button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span id="checkResult" class="btn red" style="display:none"></span>
+									<span id="loading" style="display:none"><img src="${IncPath}/assets/img/loading-spinner-blue.gif"></span>
 								</div>
 							</div>
+						<input type="hidden" name="url_request" id="url_request" value="http://localhost:10003/picture-server/delete.op">
+						<input type="hidden" name="url_response" id="url_response" value="http://localhost:10003/picture-server/result.jsp">
 		           		</form>
 	           		</div>
 				</div>
@@ -247,6 +252,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${IncPath}/assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
 <!-- END GENERAL PLUGINS -->
 <script src="${IncPath}/assets/scripts/core/app.js"></script>
+<script src="${BasePath}/scripts/plugin/ajaxfileupload.js"></script>
 <script src="${BasePath}/scripts/custom/cl.js"></script>
 <script src="${BasePath}/scripts/custom/view.js"></script>
 <script>

@@ -171,19 +171,19 @@ public final class ImageUtil {
     		return;
     	}
     	//l图
-        ImageUtil.zoom(path,path.replace("o", "l"), 480, ext);
+        ImageUtil.zoom(path,path.replace("_o", "_l"), 480, ext);
         //m图
-        ImageUtil.zoom(path,path.replace("o", "m"), 240, ext);
+        ImageUtil.zoom(path,path.replace("_o", "_m"), 240, ext);
         //s图
-        ImageUtil.zoom(path,path.replace("o", "s"), 160, ext);
+        ImageUtil.zoom(path,path.replace("_o", "_s"), 160, ext);
         //t图
-        ImageUtil.zoom(path,path.replace("o", "t"), 60, ext);
+        ImageUtil.zoom(path,path.replace("_o", "_t"), 60, ext);
         //b图
-        ImageUtil.zoom(path,path.replace("o", "b"), 750, ext);
+        ImageUtil.zoom(path,path.replace("_o", "_b"), 750, ext);
         //对于第一张图，切c图
         if(path.indexOf("_01_") !=-1)
         {
-        	ImageUtil.zoom(path,path.replace("o", "c"), 40, ext);
+        	ImageUtil.zoom(path,path.replace("_o", "_c"), 40, ext);
         }
     }
 }  

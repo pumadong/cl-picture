@@ -91,9 +91,11 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-body">
-		           		<form action="viewresult.do" id="form_cl" class="form-horizontal" method="POST">
+		           		<form action="" id="form_cl" class="form-horizontal" method="POST">
+		           			<input type="hidden" name="visitedModule" value="${visitedModule}">
+		           			<input type="hidden" name="visitedResource" value="${visitedResource}">
 		           			<div class="form-group">
-								<label class="control-label col-md-1">年份：
+								<label class="control-label col-md-2">年份：
 								<span class="required">
 									 *
 								</span>
@@ -116,7 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 		           			<div class="form-group">
-								<label class="control-label col-md-1">月份：
+								<label class="control-label col-md-2">月份：
 								<span class="required">
 									 *
 								</span>
@@ -140,7 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 		           			<div class="form-group">
-								<label class="control-label col-md-1">商品编号：
+								<label class="control-label col-md-2">商品编号：
 								<span class="required">
 									 *
 								</span>
@@ -150,23 +152,26 @@ License: You must have a valid license purchased only from themeforest(the above
 					           	</div>
 				           	</div>
 		           			<div class="form-group">
-								<label class="control-label col-md-1">选择文件：
+								<label class="control-label col-md-2">选择文件：
 								<span class="required">
 									 *
 								</span>
 								</label>
 								<div class="col-md-3">
-					           		<input type="file" id="uf" name="uf" data-required="1" class="form-control"/>
+					           		<input type="file" id="uploadFile" name="uploadFile" data-required="1" class="form-control"/>
 					           	</div>
 				           	</div>
 							<div class="form-actions fluid">
 								<div class="col-md-offset-0 col-md-9">
-									<button type="submit" class="btn blue" onclick="javascript:return check();">上传</button>
-									<button type="reset" class="btn blue" onclick="javascript:hide();">取消</button>
+									<button type="button" class="btn blue" onclick="javascript:Upload.upload();">上传</button>
+									<button type="reset" class="btn blue" onclick="javascript:Upload.hide();">取消</button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span id="checkResult" class="btn red" style="display:none"></span>
+									<span id="loading" style="display:none"><img src="${IncPath}/assets/img/loading-spinner-blue.gif"></span>
 								</div>
 							</div>
+						<input type="hidden" name="url_request" id="url_request" value="http://localhost:10003/picture-server/upload.op">
+						<input type="hidden" name="url_response" id="url_response" value="http://localhost:10003/picture-server/result.jsp">
 		           		</form>
 	           		</div>
 				</div>
@@ -202,6 +207,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${IncPath}/assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
 <!-- END GENERAL PLUGINS -->
 <script src="${IncPath}/assets/scripts/core/app.js"></script>
+<script src="${BasePath}/scripts/plugin/ajaxfileupload.js"></script>
 <script src="${BasePath}/scripts/custom/cl.js"></script>
 <script src="${BasePath}/scripts/custom/upload.js"></script>
 <script>

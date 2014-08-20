@@ -42,6 +42,7 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
+
 	<!-- ======================== 单点登出开始 ======================== -->
 	<listener>  
       <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>   

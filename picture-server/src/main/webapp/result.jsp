@@ -1,4 +1,7 @@
-<%	String s = request.getParameter("result");
+<%@ page pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%	
+	String s = request.getParameter("result");
 	if(s!=null)
 	{		
 		//s=java.net.URLDecoder.decode(s,"UTF-8");
@@ -7,5 +10,4 @@
 	} else {
 		out.print("{result:'fail',message:'没有返回数据'}");
 	}
-
 %>

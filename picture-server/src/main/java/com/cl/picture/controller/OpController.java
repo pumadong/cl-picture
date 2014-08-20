@@ -49,7 +49,7 @@ public class OpController {
             return "redirect:" + url + "?result=" + URLEncoder.encode(resultJson,"UTF-8");
 		}
 		
-		regEx = "^\\d{8}$";
+		regEx = "^\\d{8,10}$";
 		pat = Pattern.compile(regEx);  
 		mat = pat.matcher(no);  
 		if(!mat.find())
@@ -62,7 +62,7 @@ public class OpController {
 		//得到文件名
         String filename=uploadFile.getOriginalFilename();
         
-        regEx = "^\\d{8}_[0,1]{1}\\d{1}_[b,o]{1}.\\w+$";
+        regEx = "^\\d{8,10}_[0,1]{1}\\d{1}_[b,o]{1}.\\w+$";
 		pat = Pattern.compile(regEx);  
 		mat = pat.matcher(filename);  
 		if(!mat.find())
@@ -140,7 +140,7 @@ public class OpController {
     public String delete(HttpServletRequest request,String dt,String no,String url) throws Exception {
 		//文件保存成功后返回对方网站的页面，解决跨域的问题,url
 
-		String resultJson = "{result:'success',message:'指定的目录删除成功！'}";
+		String resultJson = "{}";
 		
 		//判断传入的dt,no是否格式正确
 		String regEx = "^\\d{6}$";
@@ -152,7 +152,7 @@ public class OpController {
             return "redirect:" + url + "?result=" + URLEncoder.encode(resultJson,"UTF-8");
 		}
 		
-		regEx = "^\\d{8}$";
+		regEx = "^\\d{8,10}$";
 		pat = Pattern.compile(regEx);  
 		mat = pat.matcher(no);  
 		if(!mat.find())
@@ -172,7 +172,7 @@ public class OpController {
     	
     	deleteDir(file);
     	
-        
+    	resultJson = "{result:'success',message:'指定的目录删除成功！'}";
 		return "redirect:" + url + "?result=" + URLEncoder.encode(resultJson,"UTF-8");
     }
 	

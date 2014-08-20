@@ -183,6 +183,9 @@ public class IndexController {
         map.put("user", user);
         map.put("menus", menus);
         
+        map.put("visitedModule", visitedModule);
+        map.put("visitedResource", visitedResource);
+        
 		return "upload.ftl";
 	}
 }
