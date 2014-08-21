@@ -157,7 +157,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									 *
 								</span>
 								</label>
-								<div class="col-md-3">
+								<div class="col-md-5">
 					           		<input type="file" id="uploadFile" name="uploadFile" data-required="1" class="form-control"/>
 					           	</div>
 				           	</div>
